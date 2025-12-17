@@ -1,0 +1,20 @@
+name: Ejercicio 2 workflow
+
+on:
+  push:
+  pull_request:
+
+jobs:					
+  ejer2:
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+
+    steps:
+    - name: Clonar código
+      uses: actions/checkout@v5
+
+    - name: Lint
+      uses: advanced-security/python-lint-code-scanning-action@v1
+      with:
+        linter: pylint
